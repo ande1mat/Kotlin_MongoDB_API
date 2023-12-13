@@ -1,10 +1,26 @@
-class CalculateStuff {
-
+class CalculateStuff (val stuffname: String, var stuffdo: Int) {
+    //All classes are Public and Final by default
+    //above stuffname is the property and Constructor (instance of the Class) of the Class CalculateStuff
+    //stuffname is immutable and it cant change as its a 'value or val'
+    //stuffdo is a 'variable var' so it is mutable and can change
 
     fun calculateValue(a: Int) : Int {
         //Class Instance Method where you have to declare an instance of the object when used
         var b: Int = 0
         b = a + 1
+
+
+        //Use the data class below to do something
+        val matt = User("Matt", 1)
+        println(matt)
+        val (name, id) = matt
+        println("Their name is $name and their id is $id")
+
+
+        //We can also copy a Data object to another value
+        val otheruser = matt.copy(id = 2)
+        //name is still matt, but the id is now 2
+        println("Their name is $name and their id is $id")
         return b
     }
 
@@ -20,6 +36,31 @@ class CalculateStuff {
             return b
         }
     }
+
+
+    //In Kotlin we can pass a function as a parameter to another function
+    //this is the function being passed "{ a: Int, b:Int -> a*b}" along with two Int variables
+    //nice explanation here https://medium.com/javarevisited/function-as-parameter-in-kotlin-easy-explanation-c77e6e2c40f0
+
+    //mathFunc is the function that the calling method must work with.
+    //Whatever function is passed will have to take two Int inputs and will have to return Int.  (Int, Int) -> Int)
+    private fun mathFunction(a: Int, b:Int, mathFunc : (Int, Int) -> Int)    {
+        println ("Value of calculation: ${mathFunc(a,b)}")
+    }
+
+     public fun callerFunction () {
+        val multiplication : (Int, Int) ->Int = { a: Int, b:Int -> a*b}
+         //here we are passing in multiplication as the function to mathFunc
+        mathFunction (3, 4, multiplication)
+    }
+
+
+
+
+
+    data class User(val name: String, val id: Int)
+    //You can create a Data class to hold Data, and Kotlin will automatically
+    //create tostring, getters/setters, etc. for you with no code.
 
 
 }
