@@ -12,7 +12,7 @@ class CalculateStuff (val stuffname: String, var stuffdo: Int) {
 
         //Use the data class below to do something
         val matt = User("Matt", 1)
-        println(matt)
+        print(matt)
         val (name, id) = matt
         println("Their name is $name and their id is $id")
 
@@ -25,11 +25,15 @@ class CalculateStuff (val stuffname: String, var stuffdo: Int) {
     }
 
     companion object {
-        //In Kotlin there are no Static methods like Java, os you declare a Companion Object
+        //In Kotlin there are no Static methods like Java, so you declare a Companion Object
         //You do not need to create a new instance of Calculate Object to use calculateValue method
         //a static method like CalculateStuff.calculateValue() and get the response.
         //What differentiates static from instance methods is that they have no object that owns them.
         //Instead, static methods are defined on the class level and can be used without creating instances
+
+        //Singleton object would be like for a DB Connection
+        //Explanation of Object declarations in Kotlin  https://kotlinlang.org/docs/object-declarations.html
+
         fun calculateValue(a: Int) : Int {
             var b: Int = 0
             b = a + 1
@@ -45,7 +49,7 @@ class CalculateStuff (val stuffname: String, var stuffdo: Int) {
     //mathFunc is the function that the calling method must work with.
     //Whatever function is passed will have to take two Int inputs and will have to return Int.  (Int, Int) -> Int)
     private fun mathFunction(a: Int, b:Int, mathFunc : (Int, Int) -> Int)    {
-        println ("Value of calculation: ${mathFunc(a,b)}")
+        print ("Value of calculation: ${mathFunc(a,b)}")
     }
 
      public fun callerFunction () {

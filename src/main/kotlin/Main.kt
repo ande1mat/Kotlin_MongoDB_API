@@ -7,6 +7,10 @@ fun main(args: Array<String>) {
     // Try adding program arguments via Run/Debug configuration.
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
     println("Program arguments: ${args.joinToString()}")
+
+    //Call the min function
+    println (min(50, 45))
+
 }
 
 
@@ -18,12 +22,12 @@ fun min(a: Int, b:Int) : Int {
     //you can declare a Value that never changes, supporting immutability
     val name:String = "Matt Anderson"
 
-    print("My name is $name")
+    println("My name is $name and I am $a years old")
 
     //or Kotlin will infer the Value type like this
     val name2 = "Matt Anderson"
 
-    print("My name is $name2")
+    println("My name is $name2 and I am $b years old")
 
     //You can also declare variables that can change
     var password:String
